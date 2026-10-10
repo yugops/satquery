@@ -1,0 +1,3 @@
+# SatQuery AI — Root-level requirements
+# Installs all dependencies from the inner satquery package.
+-r satquery/requirements.txt
