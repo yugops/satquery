@@ -1,0 +1,646 @@
+{
+  "benchmark_info": {
+    "test_directory": "D:\\satquery\\test",
+    "total_datasets_processed": 3,
+    "generated_at": "2026-08-30T09:20:28.496243+00:00",
+    "overall_status": "COMPLETED"
+  },
+  "results": [
+    {
+      "dataset_group": {
+        "group_type": "STANDALONE_OPTICAL",
+        "label": "Single Scene Raster (wayanad_dem.tif)",
+        "primary_file": "wayanad_dem.tif",
+        "secondary_file": null,
+        "vv_file": null,
+        "vh_file": null,
+        "total_size_mb": 42.13
+      },
+      "geospatial_metadata": {
+        "width": 3600,
+        "height": 3600,
+        "bands": 1,
+        "crs": "EPSG:4326",
+        "resolution_meters": 0.0002777777777777778,
+        "bounds_wgs84": [
+          75.999861,
+          11.000139,
+          76.999861,
+          12.000139
+        ],
+        "location": {
+          "country": "India",
+          "state": "Kerala",
+          "district": "Wayanad",
+          "region": "Western Ghats"
+        },
+        "cloud_cover_fraction": 0.0
+      },
+      "ai_analysis": {
+        "session_id": "TEST-WAYANAD_DEM",
+        "query": "Describe this Earth observation scene, identify land cover types, vegetation, structures, and potential natural hazard risks.",
+        "intent_classified": "vqa",
+        "primary_answer": "Satellite scene evaluation (Wayanad, 3600\u00d73600 px): Topographic Digital Elevation Model (DEM / DSM): Single-band terrain surface (3600\u00d73600 px, EPSG:4326). Elevation ranges from 2.5 m to 2632.7 m (mean: 822.9 m). Topography exhibits high-relief mountainous gradient across the AOI, providing physical boundary inputs for SHALSTAB landslide slope stability, hydro-runoff routing, and flood inundation modeling. Note: This is a 1-band elevation surface, containing geometric elevation rather than optical RGB color channels.",
+        "calibrated_confidence": 0.97,
+        "uncertainty_level": "high_certainty",
+        "computation_mode": "rule_based",
+        "merkle_provenance_root": "0xa164c0c8cc4395423098536adf462ba4e2d6288bd9fefa54f07543c87c96328c"
+      },
+      "execution_telemetry": {
+        "total_latency_ms": 633.35,
+        "agents_invoked": [
+          "geo_validator",
+          "single_scene_vqa",
+          "audit_ledger",
+          "verifiable_ledger"
+        ],
+        "agent_traces": [
+          {
+            "agent_id": "geo_validator",
+            "agent_name": "GeoValidatorAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 10.08,
+            "summary": "Geospatial validation complete. Extent: 3600x3600 px, CRS: EPSG:4326, Cloud: 0.0%. Location: Wayanad, Kerala.",
+            "data": {
+              "metadata": {
+                "crs": "EPSG:4326",
+                "bounds": [
+                  75.999861,
+                  11.000139,
+                  76.999861,
+                  12.000139
+                ],
+                "width": 3600,
+                "height": 3600,
+                "bands": 1,
+                "gsd_meters": 0.0002777777777777778,
+                "nodata": null,
+                "driver": "GTiff",
+                "transform": [
+                  0.0002777777777777778,
+                  0.0,
+                  75.99986111111112,
+                  0.0,
+                  -0.0002777777777777778,
+                  12.00013888888889
+                ],
+                "administrative_district": "Wayanad",
+                "administrative_state": "Kerala"
+              },
+              "cloud_check": {
+                "cloud_fraction": 0.0,
+                "shadow_fraction": 0.0,
+                "usable_optical": true,
+                "trigger_sar_fallback": false
+              },
+              "administrative_location": {
+                "country": "India",
+                "state": "Kerala",
+                "district": "Wayanad",
+                "region": "Western Ghats"
+              }
+            }
+          },
+          {
+            "agent_id": "single_scene_vqa",
+            "agent_name": "SingleSceneVQAAgent",
+            "computation_mode": "rule_based",
+            "confidence": 0.98,
+            "execution_time_ms": 340.21,
+            "summary": "DEM Topographic Evaluation (2.5m - 2632.7m relief): 3600x3600 px",
+            "data": {
+              "query": "Describe this Earth observation scene, identify land cover types, vegetation, structures, and potential natural hazard risks.",
+              "answer": "Topographic Digital Elevation Model (DEM / DSM): Single-band terrain surface (3600\u00d73600 px, EPSG:4326). Elevation ranges from 2.5 m to 2632.7 m (mean: 822.9 m). Topography exhibits high-relief mountainous gradient across the AOI, providing physical boundary inputs for SHALSTAB landslide slope stability, hydro-runoff routing, and flood inundation modeling. Note: This is a 1-band elevation surface, containing geometric elevation rather than optical RGB color channels.",
+              "raster_type": "DEM",
+              "elevation_min_m": 2.5,
+              "elevation_max_m": 2632.65,
+              "elevation_mean_m": 822.93,
+              "computation_mode": "rule_based"
+            }
+          },
+          {
+            "agent_id": "audit_ledger",
+            "agent_name": "AuditLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 12.15,
+            "summary": "Audit ledger record committed (LEDGER-REC-#40). Calibrated Bayesian confidence: 97.0% (Cloud contamination penalty: 0.0%). Immutable SQLite persistence verified.",
+            "data": {
+              "record_id": "LEDGER-REC-#40",
+              "calibrated_confidence": 0.97,
+              "cloud_fraction": 0.0,
+              "db_path": "D:\\satquery\\backend\\database\\satquery.db"
+            }
+          },
+          {
+            "agent_id": "verifiable_ledger",
+            "agent_name": "VerifiableLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 0.15,
+            "summary": "Cryptographic provenance ledger verified. Merkle Root: 0xa164c0c8cc4395... Computed over 3 DAG nodes with tamper-evident mode certification. (CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified.)",
+            "data": {
+              "session_id": "TEST-WAYANAD_DEM",
+              "merkle_root": "0xa164c0c8cc4395423098536adf462ba4e2d6288bd9fefa54f07543c87c96328c",
+              "total_leaves": 3,
+              "leaves": [
+                {
+                  "index": 0,
+                  "agent_id": "geo_validator",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "fa571f13afb32d599fa93f7c56df17dc68614881e10107fe239841b1f9c8611e"
+                },
+                {
+                  "index": 1,
+                  "agent_id": "single_scene_vqa",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "cb369fa8b285fdf0a3a0b78bfd154673c8406fc6a2432fde24f36c9df148be3c"
+                },
+                {
+                  "index": 2,
+                  "agent_id": "audit_ledger",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "27cd37721c8de9928003f63f7f3de1ee9d1c431025ffa753b0157ffa2745c79a"
+                }
+              ],
+              "proofs": {
+                "geo_validator": [
+                  {
+                    "position": "right",
+                    "hash": "cb369fa8b285fdf0a3a0b78bfd154673c8406fc6a2432fde24f36c9df148be3c"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "257fe4494c7cbffabb54510c04f03c7e13cafc190321e248ffbf2d10d420f8a7"
+                  }
+                ],
+                "single_scene_vqa": [
+                  {
+                    "position": "left",
+                    "hash": "fa571f13afb32d599fa93f7c56df17dc68614881e10107fe239841b1f9c8611e"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "257fe4494c7cbffabb54510c04f03c7e13cafc190321e248ffbf2d10d420f8a7"
+                  }
+                ],
+                "audit_ledger": [
+                  {
+                    "position": "right",
+                    "hash": "27cd37721c8de9928003f63f7f3de1ee9d1c431025ffa753b0157ffa2745c79a"
+                  },
+                  {
+                    "position": "left",
+                    "hash": "aea90164913391369fb37787ea2918aa23675f92ca13012e721bf47752aadd2c"
+                  }
+                ]
+              },
+              "integrity_verified": true,
+              "court_admissible": true,
+              "admissibility_status": "CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified."
+            }
+          }
+        ],
+        "timestamp": "2026-08-30T09:20:11.541248+00:00"
+      }
+    },
+    {
+      "dataset_group": {
+        "group_type": "BITEMPORAL_PAIR",
+        "label": "Bi-Temporal Change Pair (wayanad_pre_multiband_t1.tif -> wayanad_post_multiband_t2.tif)",
+        "primary_file": "wayanad_pre_multiband_t1.tif",
+        "secondary_file": "wayanad_post_multiband_t2.tif",
+        "vv_file": null,
+        "vh_file": null,
+        "total_size_mb": 945.87
+      },
+      "geospatial_metadata": {
+        "width": 10980,
+        "height": 10980,
+        "bands": 4,
+        "crs": "EPSG:32643",
+        "resolution_meters": 10.0,
+        "bounds_wgs84": [
+          75.914632,
+          10.761096,
+          76.925196,
+          11.758568
+        ],
+        "location": {
+          "country": "India",
+          "state": "Kerala",
+          "district": "Wayanad / Western Ghats AOI",
+          "region": "South India (UTM Zone 43N)"
+        },
+        "cloud_cover_fraction": 0.7139
+      },
+      "ai_analysis": {
+        "session_id": "TEST-WAYANAD_PRE_",
+        "query": "Detect land cover changes, structural damage, and altered surface areas between T1 and T2 acquisitions.",
+        "intent_classified": "change",
+        "primary_answer": "Analysis complete for Wayanad / Western Ghats AOI (EPSG:32643): Geospatial validation complete. Extent: 10980x10980 px, CRS: EPSG:32643, Cloud: 71.4%. Location: Wayanad / Western Ghats AOI, Kerala. | Multispectral BOA Bi-Temporal Change (wayanad_pre_multiband_t1.tif -> wayanad_post_multiband_t2.tif): detected 80.64 ha (806,400 m\u00b2) alteration (Severe Regional Geomorphic Transformation: Widespread Scour Scar & Land Cover Shift). [Low Sensor Confidence (41.0%) due to optical cloud obstruction \u2014 Ground Truth or SAR fallback recommended].",
+        "calibrated_confidence": 0.41,
+        "uncertainty_level": "requires_field_verification",
+        "computation_mode": "rule_based",
+        "merkle_provenance_root": "0x05c481a529d6918fa8a9be3ae27731769e49b61e3430efc0a1d677e0623bac7d"
+      },
+      "execution_telemetry": {
+        "total_latency_ms": 8374.7,
+        "agents_invoked": [
+          "geo_validator",
+          "bitemporal_change",
+          "audit_ledger",
+          "verifiable_ledger"
+        ],
+        "agent_traces": [
+          {
+            "agent_id": "geo_validator",
+            "agent_name": "GeoValidatorAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 8056.97,
+            "summary": "Geospatial validation complete. Extent: 10980x10980 px, CRS: EPSG:32643, Cloud: 71.4%. Location: Wayanad / Western Ghats AOI, Kerala.",
+            "data": {
+              "metadata": {
+                "crs": "EPSG:32643",
+                "bounds": [
+                  75.914632,
+                  10.761096,
+                  76.925196,
+                  11.758568
+                ],
+                "width": 10980,
+                "height": 10980,
+                "bands": 4,
+                "gsd_meters": 10.0,
+                "nodata": 0.0,
+                "driver": "GTiff",
+                "transform": [
+                  10.0,
+                  0.0,
+                  600000.0,
+                  0.0,
+                  -10.0,
+                  1300020.0
+                ],
+                "administrative_district": "Wayanad / Western Ghats AOI",
+                "administrative_state": "Kerala"
+              },
+              "cloud_check": {
+                "cloud_fraction": 0.7139,
+                "shadow_fraction": 0.1785,
+                "usable_optical": false,
+                "trigger_sar_fallback": true
+              },
+              "administrative_location": {
+                "country": "India",
+                "state": "Kerala",
+                "district": "Wayanad / Western Ghats AOI",
+                "region": "South India (UTM Zone 43N)"
+              }
+            }
+          },
+          {
+            "agent_id": "bitemporal_change",
+            "agent_name": "BiTemporalChangeAgent",
+            "computation_mode": "rule_based",
+            "confidence": 0.95,
+            "execution_time_ms": 162.17,
+            "summary": "Multispectral BOA Bi-Temporal Change (wayanad_pre_multiband_t1.tif -> wayanad_post_multiband_t2.tif): detected 80.64 ha (806,400 m\u00b2) alteration (Severe Regional Geomorphic Transformation: Widespread Scour Scar & Land Cover Shift).",
+            "data": {
+              "status": "COMPLETED",
+              "is_calibrated_reflectance": true,
+              "change_detected": true,
+              "changed_percentage": 3.08,
+              "affected_area_hectares": 80.64,
+              "affected_area_m2": 806400.0,
+              "classification": {
+                "status": "COMPLETED",
+                "is_calibrated_reflectance": true,
+                "changed_percentage": 3.08,
+                "affected_area_m2": 806400.0,
+                "affected_area_hectares": 80.64,
+                "severity": "Severe Regional Geomorphic Transformation",
+                "primary_class": "Widespread Scour Scar & Land Cover Shift",
+                "debris_pixel_count": 8064,
+                "total_analyzed_pixels": 262144,
+                "resolution_meters": 10.0,
+                "notes": "Quantitative surface change derived from calibrated Bottom-Of-Atmosphere (L2A) multispectral reflectance."
+              },
+              "t1_source": "D:\\satquery\\test\\wayanad_pre_multiband_t1.tif",
+              "t2_source": "D:\\satquery\\test\\wayanad_post_multiband_t2.tif",
+              "resolution_meters": 10.0
+            }
+          },
+          {
+            "agent_id": "audit_ledger",
+            "agent_name": "AuditLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 9.18,
+            "summary": "Audit ledger record committed (LEDGER-REC-#41). Calibrated Bayesian confidence: 41.0% (Cloud contamination penalty: 71.4%). Immutable SQLite persistence verified.",
+            "data": {
+              "record_id": "LEDGER-REC-#41",
+              "calibrated_confidence": 0.41,
+              "cloud_fraction": 0.7139,
+              "db_path": "D:\\satquery\\backend\\database\\satquery.db"
+            }
+          },
+          {
+            "agent_id": "verifiable_ledger",
+            "agent_name": "VerifiableLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 0.12,
+            "summary": "Cryptographic provenance ledger verified. Merkle Root: 0x05c481a529d691... Computed over 3 DAG nodes with tamper-evident mode certification. (CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified.)",
+            "data": {
+              "session_id": "TEST-WAYANAD_PRE_",
+              "merkle_root": "0x05c481a529d6918fa8a9be3ae27731769e49b61e3430efc0a1d677e0623bac7d",
+              "total_leaves": 3,
+              "leaves": [
+                {
+                  "index": 0,
+                  "agent_id": "geo_validator",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "180a08d07181228124bc40ceb46157d3bde8e4dd38ea9455421dd6150d1da302"
+                },
+                {
+                  "index": 1,
+                  "agent_id": "bitemporal_change",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "aeb16b88780786cfaa6ddd0123745d38cdad05bac2948897e2a63004be5d68f3"
+                },
+                {
+                  "index": 2,
+                  "agent_id": "audit_ledger",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "e9d7b97b66e05d6da0d15959d0570b36b8405d630117c6cdcb2d1cd211b04599"
+                }
+              ],
+              "proofs": {
+                "geo_validator": [
+                  {
+                    "position": "right",
+                    "hash": "aeb16b88780786cfaa6ddd0123745d38cdad05bac2948897e2a63004be5d68f3"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "f3bd16454fcb4d0b0a2a707649a0492dc35ac2f5dc10277964d94c6980cdb6b8"
+                  }
+                ],
+                "bitemporal_change": [
+                  {
+                    "position": "left",
+                    "hash": "180a08d07181228124bc40ceb46157d3bde8e4dd38ea9455421dd6150d1da302"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "f3bd16454fcb4d0b0a2a707649a0492dc35ac2f5dc10277964d94c6980cdb6b8"
+                  }
+                ],
+                "audit_ledger": [
+                  {
+                    "position": "right",
+                    "hash": "e9d7b97b66e05d6da0d15959d0570b36b8405d630117c6cdcb2d1cd211b04599"
+                  },
+                  {
+                    "position": "left",
+                    "hash": "b5986704da9dfc904e4d5944b9788623aec2abc5514ef5347b80f224a0e578eb"
+                  }
+                ]
+              },
+              "integrity_verified": true,
+              "court_admissible": true,
+              "admissibility_status": "CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified."
+            }
+          }
+        ],
+        "timestamp": "2026-08-30T09:20:19.915909+00:00"
+      }
+    },
+    {
+      "dataset_group": {
+        "group_type": "BITEMPORAL_PAIR",
+        "label": "Bi-Temporal Change Pair (wayanad_pre_t1.tif -> wayanad_post_t2.tif)",
+        "primary_file": "wayanad_pre_t1.tif",
+        "secondary_file": "wayanad_post_t2.tif",
+        "vv_file": null,
+        "vh_file": null,
+        "total_size_mb": 308.56
+      },
+      "geospatial_metadata": {
+        "width": 10980,
+        "height": 10980,
+        "bands": 3,
+        "crs": "EPSG:32643",
+        "resolution_meters": 10.0,
+        "bounds_wgs84": [
+          75.914632,
+          10.761096,
+          76.925196,
+          11.758568
+        ],
+        "location": {
+          "country": "India",
+          "state": "Kerala",
+          "district": "Wayanad / Western Ghats AOI",
+          "region": "South India (UTM Zone 43N)"
+        },
+        "cloud_cover_fraction": 0.2222
+      },
+      "ai_analysis": {
+        "session_id": "TEST-WAYANAD_PRE_",
+        "query": "Detect land cover changes, structural damage, and altered surface areas between T1 and T2 acquisitions.",
+        "intent_classified": "change",
+        "primary_answer": "Analysis complete for Wayanad / Western Ghats AOI (EPSG:32643): Geospatial validation complete. Extent: 10980x10980 px, CRS: EPSG:32643, Cloud: 22.2%. Location: Wayanad / Western Ghats AOI, Kerala. | TCI True-Color Visual Divergence (wayanad_pre_t1.tif -> wayanad_post_t2.tif): 48.96% visual contrast shift (TCI Optical Contrast & Atmospheric Drift). Quantitative physical area requires calibrated multispectral reflectance. (Likely observation; recommended field validation).",
+        "calibrated_confidence": 0.786,
+        "uncertainty_level": "moderate_confidence",
+        "computation_mode": "rule_based",
+        "merkle_provenance_root": "0x3b5710412314f58ea2ea377e6ef3c8615856f9389023c173e0d63802159ba2b5"
+      },
+      "execution_telemetry": {
+        "total_latency_ms": 8579.78,
+        "agents_invoked": [
+          "geo_validator",
+          "bitemporal_change",
+          "audit_ledger",
+          "verifiable_ledger"
+        ],
+        "agent_traces": [
+          {
+            "agent_id": "geo_validator",
+            "agent_name": "GeoValidatorAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 8342.66,
+            "summary": "Geospatial validation complete. Extent: 10980x10980 px, CRS: EPSG:32643, Cloud: 22.2%. Location: Wayanad / Western Ghats AOI, Kerala.",
+            "data": {
+              "metadata": {
+                "crs": "EPSG:32643",
+                "bounds": [
+                  75.914632,
+                  10.761096,
+                  76.925196,
+                  11.758568
+                ],
+                "width": 10980,
+                "height": 10980,
+                "bands": 3,
+                "gsd_meters": 10.0,
+                "nodata": 0.0,
+                "driver": "GTiff",
+                "transform": [
+                  10.0,
+                  0.0,
+                  600000.0,
+                  0.0,
+                  -10.0,
+                  1300020.0
+                ],
+                "administrative_district": "Wayanad / Western Ghats AOI",
+                "administrative_state": "Kerala"
+              },
+              "cloud_check": {
+                "cloud_fraction": 0.2222,
+                "shadow_fraction": 0.0556,
+                "usable_optical": true,
+                "trigger_sar_fallback": false
+              },
+              "administrative_location": {
+                "country": "India",
+                "state": "Kerala",
+                "district": "Wayanad / Western Ghats AOI",
+                "region": "South India (UTM Zone 43N)"
+              }
+            }
+          },
+          {
+            "agent_id": "bitemporal_change",
+            "agent_name": "BiTemporalChangeAgent",
+            "computation_mode": "rule_based",
+            "confidence": 0.95,
+            "execution_time_ms": 66.52,
+            "summary": "TCI True-Color Visual Divergence (wayanad_pre_t1.tif -> wayanad_post_t2.tif): 48.96% visual contrast shift (TCI Optical Contrast & Atmospheric Drift). Quantitative physical area requires calibrated multispectral reflectance.",
+            "data": {
+              "status": "COMPLETED",
+              "is_calibrated_reflectance": false,
+              "change_detected": false,
+              "changed_percentage": 48.96,
+              "affected_area_hectares": null,
+              "affected_area_m2": null,
+              "classification": {
+                "status": "COMPLETED",
+                "is_calibrated_reflectance": false,
+                "changed_percentage": 48.96,
+                "affected_area_m2": null,
+                "affected_area_hectares": null,
+                "severity": "Qualitative Visual Variance",
+                "primary_class": "TCI Optical Contrast & Atmospheric Drift",
+                "debris_pixel_count": 128348,
+                "total_analyzed_pixels": 262144,
+                "resolution_meters": 10.0,
+                "notes": "TCI is a non-calibrated visualization product subject to scene-dependent contrast stretching and sun angle variation. Quantitative physical surface area (hectares) requires calibrated multispectral reflectance stacks."
+              },
+              "t1_source": "D:\\satquery\\test\\wayanad_pre_t1.tif",
+              "t2_source": "D:\\satquery\\test\\wayanad_post_t2.tif",
+              "resolution_meters": 10.0
+            }
+          },
+          {
+            "agent_id": "audit_ledger",
+            "agent_name": "AuditLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 12.65,
+            "summary": "Audit ledger record committed (LEDGER-REC-#42). Calibrated Bayesian confidence: 78.6% (Cloud contamination penalty: 22.2%). Immutable SQLite persistence verified.",
+            "data": {
+              "record_id": "LEDGER-REC-#42",
+              "calibrated_confidence": 0.786,
+              "cloud_fraction": 0.2222,
+              "db_path": "D:\\satquery\\backend\\database\\satquery.db"
+            }
+          },
+          {
+            "agent_id": "verifiable_ledger",
+            "agent_name": "VerifiableLedgerAgent",
+            "computation_mode": "rule_based",
+            "confidence": 1.0,
+            "execution_time_ms": 0.13,
+            "summary": "Cryptographic provenance ledger verified. Merkle Root: 0x3b5710412314f5... Computed over 3 DAG nodes with tamper-evident mode certification. (CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified.)",
+            "data": {
+              "session_id": "TEST-WAYANAD_PRE_",
+              "merkle_root": "0x3b5710412314f58ea2ea377e6ef3c8615856f9389023c173e0d63802159ba2b5",
+              "total_leaves": 3,
+              "leaves": [
+                {
+                  "index": 0,
+                  "agent_id": "geo_validator",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "5b4eb54e135a3b5847729c3c8e37bc20ebd139d87e8f28ae3659ede88ae77fb5"
+                },
+                {
+                  "index": 1,
+                  "agent_id": "bitemporal_change",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "fa719e937abdd4dc331695823f146694f0e179890424ed2fe1ab6d4387af069d"
+                },
+                {
+                  "index": 2,
+                  "agent_id": "audit_ledger",
+                  "computation_mode": "rule_based",
+                  "weights_sha256": null,
+                  "leaf_hash": "8b7dd9199bd1071c08b129971e8b65cbbfa76d545747966bf90ce14b51a971e2"
+                }
+              ],
+              "proofs": {
+                "geo_validator": [
+                  {
+                    "position": "right",
+                    "hash": "fa719e937abdd4dc331695823f146694f0e179890424ed2fe1ab6d4387af069d"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "5e4722bbafab79c2fa9403f704437b4214215c8af6bfda2315e20c1dd5c30610"
+                  }
+                ],
+                "bitemporal_change": [
+                  {
+                    "position": "left",
+                    "hash": "5b4eb54e135a3b5847729c3c8e37bc20ebd139d87e8f28ae3659ede88ae77fb5"
+                  },
+                  {
+                    "position": "right",
+                    "hash": "5e4722bbafab79c2fa9403f704437b4214215c8af6bfda2315e20c1dd5c30610"
+                  }
+                ],
+                "audit_ledger": [
+                  {
+                    "position": "right",
+                    "hash": "8b7dd9199bd1071c08b129971e8b65cbbfa76d545747966bf90ce14b51a971e2"
+                  },
+                  {
+                    "position": "left",
+                    "hash": "596c460264779924d8c7b87a491ea005316faa3f5cfdee415ee6e6708453d0c4"
+                  }
+                ]
+              },
+              "integrity_verified": true,
+              "court_admissible": true,
+              "admissibility_status": "CERTIFIED: Full cryptographic provenance and complete multimodal inputs verified."
+            }
+          }
+        ],
+        "timestamp": "2026-08-30T09:20:28.496243+00:00"
+      }
+    }
+  ]
+}
