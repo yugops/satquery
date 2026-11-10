@@ -1,0 +1,1 @@
+"""SatQuery AI — Model Adapters."""
